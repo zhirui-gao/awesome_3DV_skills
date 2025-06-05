@@ -23,6 +23,7 @@ def align_scene_to_z_up(pcd, save_pcd_path=None, save_transform_path=None, visua
     points = np.asarray(pcd.points)
     centroid = np.mean(points, axis=0)
     distance_threshold = 0.02  # 动态距离阈值
+    R_ground = np.eye(3)  # Initialize ground rotation matrix
     if fit_ground:
         plane_model, ground_inliers = pcd.segment_plane(
             distance_threshold=distance_threshold,
@@ -60,6 +61,10 @@ def align_scene_to_z_up(pcd, save_pcd_path=None, save_transform_path=None, visua
         ])
         R_ground = np.eye(3) + np.sin(angle) * K + (1 - np.cos(angle)) * (K @ K)
         
+        # [Alternate] concise method
+        # from scipy.spatial.transform import Rotation as R
+        # R_ground = R.from_rotvec(rotation_axis * angle).as_matrix()
+
         # 4. 应用地面旋转
         centered_points = points - centroid
         ground_rotated = (R_ground @ centered_points.T).T
@@ -125,9 +130,17 @@ def align_scene_to_z_up(pcd, save_pcd_path=None, save_transform_path=None, visua
 
     
     # 8. 创建变换矩阵（旋转 + 平移）
-    transform_matrix = np.eye(4)
-    transform_matrix[:3, :3] = R_walls
-    transform_matrix[:3, 3] = -R_walls @ centroid  # 平移使中心到原点
+    if fit_ground:
+        # Compose the transformations: first ground rotation, then wall rotation
+        combined_rotation = R_walls @ R_ground
+        transform_matrix = np.eye(4)
+        transform_matrix[:3, :3] = combined_rotation
+        transform_matrix[:3, 3] = -combined_rotation @ centroid
+    else:
+        # Only wall rotation
+        transform_matrix = np.eye(4)
+        transform_matrix[:3, :3] = R_walls
+        transform_matrix[:3, 3] = -R_walls @ centroid  # 平移使中心到原点
     
     # 9. 应用变换
     aligned_points = (transform_matrix[:3, :3] @ points.T + transform_matrix[:3, 3:4]).T
