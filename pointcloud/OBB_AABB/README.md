@@ -2,7 +2,7 @@
 
 > Here is an algorithm to get the bounding box with direction from the segmented point cloud
 
-
+open3d的 obb检测算法无法满足obb垂直于地面,于是需要一个实用的obb检测算法
 1. 输入一个点云,不同颜色表示不同的分割
 2. 点云变成Z轴垂直于地面
 3. 把点云投影到xy平面,枚举点云的选择角度,保存一个最小面积的包围框
