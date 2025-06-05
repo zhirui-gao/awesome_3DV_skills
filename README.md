@@ -3,6 +3,9 @@ This repository records useful knowledge and tips in the field of 3D vision. Con
 
 🌟 It is very appreciated to star our repo 🌃!
 
-2025/6/6 Update: point cloud axis alignment
-2025/6/6 Update: get obb and AABB from segmented point clouds
+
+
+
+1. 2025/6/6 Update: point cloud axis alignment
+2. 2025/6/6 Update: get obb and AABB from segmented point clouds
 
