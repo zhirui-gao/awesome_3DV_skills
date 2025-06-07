@@ -2,7 +2,8 @@
 
 > Here is an algorithm to get the bounding box with direction from the segmented point cloud
 
-![Uploading image.png…]()  
+
+![image](https://github.com/user-attachments/assets/217d9a8b-d6ca-4714-a392-670186d29b22)
 
 
 
