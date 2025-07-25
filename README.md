@@ -6,6 +6,6 @@ This repository records useful knowledge and tips in the field of 3D vision. Con
 
 
 
-1. 2025/6/6 Update: point cloud axis alignment
-2. 2025/6/6 Update: get obb and AABB from segmented point clouds
+1. 2025/6/6 Update: [point cloud axis alignment](https://github.com/zhirui-gao/awesome_3DV_skills/tree/main/pointcloud)
+2. 2025/6/6 Update: [get obb and AABB from segmented point clouds](https://github.com/zhirui-gao/awesome_3DV_skills/tree/main/pointcloud/OBB_AABB)
 
