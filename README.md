@@ -11,4 +11,5 @@ This repository records useful knowledge and tips in the field of 3D vision. Con
 3. 2025/8/11 Update: [How to configure the launch.json in multi-gpu training](https://github.com/zhirui-gao/awesome_3DV_skills/tree/main/Vscode)
 4. 2025/8/12 Update: [render rgb/normal/depth/mask maps of ABC-dataset](https://github.com/zhirui-gao/awesome_3DV_skills/blob/main/BlenderProc/render_ABC.py)
 5. 2025/8/15 Update: [calculat the chamfer distance of two batch pointcloud](https://github.com/zhirui-gao/awesome_3DV_skills/blob/main/pointcloud/chamfer.py)
+6. 2025/11/10 github： https://bgithub.xyz/
 
